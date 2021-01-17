@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Treatment</string>
+    <string name="dashboard_fragment">Dashboard fragment</string>
+    <string name="treatment_fragment">Treatment fragment</string>
+    <string name="item_medication">Medication</string>
+    <string name="item_measurement">Measurement</string>
+    <string name="item_activity">Activity</string>
+    <string name="item_symptom_check">Symptom check</string>
+    <string name="add_medication_dialog">Add medication dialog</string>
+    <string name="add_treatment_fragment">Add treatment fragment</string>
 </resources>

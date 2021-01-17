@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@+id/treatmentFragment">
+
+    <action
+        android:id="@+id/action_to_dashboard_fragment"
+        app:destination="@+id/dashboardFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/app_navigation"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_to_treatment_fragment"
+        app:destination="@+id/dashboardFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/app_navigation"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.eandm.treatment.ui.dashboard.DashboardFragment"
+        android:label="@string/dashboard_fragment"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/treatmentFragment"
+        android:name="com.eandm.treatment.ui.treatment.TreatmentFragment"
+        android:label="@string/treatment_fragment"
+        tools:layout="@layout/fragment_treatment" >
+
+        <action
+            android:id="@+id/action_treatment_fragment_to_add_treatment_fragment"
+            app:destination="@+id/addTreatmentFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addTreatmentFragment"
+        android:name="com.eandm.treatment.ui.treatment.add.AddTreatmentFragment"
+        android:label="@string/add_treatment_fragment"
+        tools:layout="@layout/fragment_add_treatment">
+
+        <action
+            android:id="@+id/action_add_treatment_fragment_to_add_medication_dialog"
+            app:destination="@+id/addMedicationDialog" />
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/addMedicationDialog"
+        android:name="com.eandm.treatment.ui.treatment.add.AddMedicationDialog"
+        android:label="@string/add_medication_dialog"
+        tools:layout="@layout/dialog_add_medication" />
+
+</navigation>
