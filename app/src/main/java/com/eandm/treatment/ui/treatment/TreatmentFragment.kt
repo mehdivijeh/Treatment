@@ -1,6 +1,7 @@
 package com.eandm.treatment.ui.treatment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -29,14 +30,18 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
         }
     }
 
-    private fun initBottomSheet(){
+    private fun initBottomSheet() {
         treatmentTypeBottomSheet = TreatmentTypeBottomSheet(
             requireContext(),
             treatmentTypeViewModel,
-            viewLifecycleOwner,
-            {
-                findNavController().navigate(R.id.action_treatment_fragment_to_add_treatment_fragment)
-            }
-        )
+            viewLifecycleOwner
+        ).apply {
+            onItemClicked = ::navigateToSelectMedication
+        }
+    }
+
+    private fun navigateToSelectMedication(treatmentItemId : Int){
+        findNavController().navigate(R.id.action_treatment_fragment_to_select_medication_fragment)
+        treatmentTypeBottomSheet!!.dismiss()
     }
 }

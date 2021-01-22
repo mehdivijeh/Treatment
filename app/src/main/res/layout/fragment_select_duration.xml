@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarSize"
+        app:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/space_10">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_toolbar"
+                style="@style/toolbar_title_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_2"
+                android:text="@string/duration"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/system_icon_touch_size"
+                android:layout_height="@dimen/system_icon_touch_size"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/space_0.5"
+                android:background="?attr/actionBarItemBackground"
+                android:padding="@dimen/space_1.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back_24"
+                app:tint="@color/medium_gray" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/lil_start_date"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/selector_click_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_date_title"
+            style="@style/reminder_primary_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/start_date" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_date_unit"
+            style="@style/reminder_primary_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/today" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_date"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_0.5"
+        android:background="@color/horizontalDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lil_start_date" />
+
+    <RadioGroup
+        android:id="@+id/rgp_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/rdb_no_end_date"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/divider_date">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rdb_no_end_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:layoutDirection="rtl"
+            android:layout_marginStart="@dimen/space_2"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/no_end_date" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rdb_until_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:layoutDirection="rtl"
+            android:layout_marginStart="@dimen/space_2"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/until_date" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rdb_for_x_days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:layoutDirection="rtl"
+            android:layout_marginStart="@dimen/space_2"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/for_x_days" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divider_secondary"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/space_0.5"
+        android:background="@color/horizontalDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rgp_duration" />
+
+    <LinearLayout
+        android:id="@+id/lil_duration"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/selector_click_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/divider_secondary">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_duration_title"
+            style="@style/reminder_primary_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/duration" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_duration_value"
+            style="@style/reminder_primary_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="10" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lil_until"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/selector_click_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/divider_secondary">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_until_title"
+            style="@style/reminder_primary_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/until" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_until_value"
+            style="@style/reminder_primary_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="1/31/21" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,30 +29,71 @@
         android:id="@+id/treatmentFragment"
         android:name="com.eandm.treatment.ui.treatment.TreatmentFragment"
         android:label="@string/treatment_fragment"
-        tools:layout="@layout/fragment_treatment" >
+        tools:layout="@layout/fragment_treatment">
 
         <action
-            android:id="@+id/action_treatment_fragment_to_add_treatment_fragment"
-            app:destination="@+id/addTreatmentFragment" />
+            android:id="@+id/action_treatment_fragment_to_select_medication_fragment"
+            app:destination="@+id/selectMedicationFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/selectMedicationFragment"
+        android:name="com.eandm.treatment.ui.treatment.add.medication.SelectMedicationFragment"
+        android:label="@string/select_medication_fragment"
+        tools:layout="@layout/fragment_select_medication">
+
+        <argument
+            android:name="full_screen_page"
+            android:defaultValue="true" />
+
+        <action
+            android:id="@+id/action_select_treatment_fragment_to_add_reminder_fragment"
+            app:destination="@+id/addReminderFragment">
+
+            <argument
+                android:name="addReminderType"
+                app:argType="com.eandm.treatment.ui.treatment.reminder.AddReminderData"
+                app:nullable="false" />
+
+        </action>
 
     </fragment>
 
     <fragment
-        android:id="@+id/addTreatmentFragment"
-        android:name="com.eandm.treatment.ui.treatment.add.AddTreatmentFragment"
-        android:label="@string/add_treatment_fragment"
-        tools:layout="@layout/fragment_add_treatment">
+        android:id="@+id/addReminderFragment"
+        android:name="com.eandm.treatment.ui.treatment.reminder.AddReminderFragment"
+        android:label="@string/add_reminder_fragment"
+        tools:layout="@layout/fragment_add_reminder">
+
+        <argument
+            android:name="full_screen_page"
+            android:defaultValue="true" />
 
         <action
-            android:id="@+id/action_add_treatment_fragment_to_add_medication_dialog"
-            app:destination="@+id/addMedicationDialog" />
+            android:id="@+id/action_add_reminder_fragment_to_select_duration_fragment"
+            app:destination="@+id/selectDurationFragment">
+
+            <argument
+                android:name="durationData"
+                app:argType="com.eandm.treatment.ui.treatment.reminder.duration.SelectDurationData"
+                app:nullable="false" />
+
+        </action>
 
     </fragment>
 
-    <dialog
-        android:id="@+id/addMedicationDialog"
-        android:name="com.eandm.treatment.ui.treatment.add.AddMedicationDialog"
-        android:label="@string/add_medication_dialog"
-        tools:layout="@layout/dialog_add_medication" />
+    <fragment
+        android:id="@+id/selectDurationFragment"
+        android:name="com.eandm.treatment.ui.treatment.reminder.duration.SelectDurationFragment"
+        android:label="@string/Select_duration_fragment"
+        tools:layout="@layout/fragment_select_duration">
+
+        <argument
+            android:name="full_screen_page"
+            android:defaultValue="true" />
+
+    </fragment>
 
 </navigation>

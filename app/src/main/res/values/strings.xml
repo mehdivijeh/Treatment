@@ -7,5 +7,28 @@
     <string name="item_activity">Activity</string>
     <string name="item_symptom_check">Symptom check</string>
     <string name="add_medication_dialog">Add medication dialog</string>
-    <string name="add_treatment_fragment">Add treatment fragment</string>
+    <string name="add_reminder_fragment">Add reminder fragment</string>
+    <string name="select_medication_fragment">Select Medication fragment</string>
+    <string name="medication_name">Medication name</string>
+    <string name="medication_unit">Unit</string>
+    <string name="reminder_add_medication">Add medication</string>
+    <string name="reminder_add_activity">Add activity</string>
+    <string name="reminder_add_measurement">Add measurement</string>
+    <string name="next">NEXT</string>
+    <string name="add_reminder_time">Add reminder time</string>
+    <string name="duration">Duration</string>
+    <string name="start_date">Start date</string>
+    <string name="today">Today</string>
+    <string name="until">Until</string>
+    <string name="no_end_date">No end date</string>
+    <string name="until_date">Until date</string>
+    <string name="for_x_days">For X days</string>
+    <string name="Select_duration_fragment">Select duration fragment</string>
+
+    <string-array name="medication_type">
+        <item name="iu">IU</item>
+        <item name="pill">pill(s)</item>
+        <item name="spray">spray</item>
+        <item name="milligram">milligram</item>
+    </string-array>
 </resources>

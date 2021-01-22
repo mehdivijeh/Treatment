@@ -12,9 +12,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 class TreatmentTypeBottomSheet(
     context: Context,
     treatmentTypeViewModel: TreatmentTypeViewModel,
-    lifecycleOwner: LifecycleOwner,
-    onClick: (Int) -> Unit
+    lifecycleOwner: LifecycleOwner
 ) : BottomSheetDialog(context, R.style.AppBottomSheetDialogTheme) {
+
+    var onItemClicked: (Int) -> Unit = {}
 
     init {
         val view = LayoutInflater.from(context)
@@ -26,9 +27,13 @@ class TreatmentTypeBottomSheet(
         treatmentTypeViewModel.treatmentTypeObservable.observe(lifecycleOwner) {
             recyclerViewTreatmentType.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = TreatmentTypeAdapter(it, onClick)
+                adapter = TreatmentTypeAdapter(it, onItemClicked)
             }
         }
+    }
+
+    fun dismissBottomSheet() {
+        dismiss()
     }
 
 }

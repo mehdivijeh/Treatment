@@ -18,4 +18,41 @@
 
     <style name="AppBottomSheetDialogTheme" parent="AppBottomSheetDialogTheme.Base" />
 
+    <style name="input_field_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="fontFamily">@font/iran_yekan_regular_mobile_fa_num</item>
+        <item name="android:fontFamily">@font/iran_yekan_regular_mobile_fa_num</item>
+    </style>
+
+    <style name="input_field_error_style">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="fontFamily">@font/iran_yekan_light</item>
+        <item name="android:fontFamily">@font/iran_yekan_light</item>
+    </style>
+
+    <style name="spinner_style">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="fontFamily">@font/iran_yekan_regular_mobile_fa_num</item>
+        <item name="android:fontFamily">@font/iran_yekan_regular_mobile_fa_num</item>
+    </style>
+
+    <style name="reminder_primary_head">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="fontFamily">@font/iran_yekan_regular</item>
+        <item name="android:fontFamily">@font/iran_yekan_regular</item>
+    </style>
+
+    <style name="reminder_primary_sub">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="fontFamily">@font/iran_yekan_light</item>
+        <item name="android:fontFamily">@font/iran_yekan_light</item>
+    </style>
+
+    <style name="toolbar_title_style" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/text_size_xlarge</item>
+        <item name="fontFamily">@font/iran_yekan_bold</item>
+        <item name="android:fontFamily">@font/iran_yekan_bold</item>
+    </style>
+
 </resources>

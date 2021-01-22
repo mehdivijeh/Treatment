@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarSize"
+        app:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/space_10">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/toolbar_title_style"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/img_back"
+                android:layout_marginStart="@dimen/space_2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/system_icon_touch_size"
+                android:layout_height="@dimen/system_icon_touch_size"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/space_0.5"
+                android:background="?attr/actionBarItemBackground"
+                android:padding="@dimen/space_1.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:tint="@color/medium_gray"
+                app:srcCompat="@drawable/ic_close_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/lil_primary"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:background="@drawable/selector_click_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_primary_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        style="@style/reminder_primary_head"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_primary_unit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/reminder_primary_sub"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_primary"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_0.5"
+        android:background="@color/horizontalDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lil_primary" />
+
+    <LinearLayout
+        android:id="@+id/lil_duration"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:background="@drawable/selector_click_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/divider_primary"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_duration_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:text="Duration"
+            android:paddingEnd="16dp"
+            style="@style/reminder_primary_head"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_duration_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No end date"
+            style="@style/reminder_primary_sub"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lil_frequency"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:background="@drawable/selector_click_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/lil_duration"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_frequency_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:text="Frequency of intake"
+            android:paddingEnd="16dp"
+            style="@style/reminder_primary_head"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_frequency_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/reminder_primary_sub"
+            android:text="Daily"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_duration"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_0.5"
+        android:background="@color/horizontalDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lil_frequency" />
+
+    <View
+        android:id="@+id/lil_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:background="@drawable/selector_click_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/divider_duration"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_reminder_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:drawablePadding="@dimen/space_4"
+            android:text="@string/add_reminder_time"
+            android:textColor="@color/yellow"
+            android:drawableStart="@drawable/ic_alarm_add_24"
+            style="@style/reminder_primary_head"
+            app:layout_constraintTop_toTopOf="@+id/lil_reminder"
+            app:layout_constraintBottom_toBottomOf="@+id/lil_reminder"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
