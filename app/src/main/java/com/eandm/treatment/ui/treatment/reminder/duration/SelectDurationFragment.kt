@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.eandm.treatment.R
+import com.eandm.treatment.ui.treatment.NumberPickerDialog
+import com.eandm.treatment.utils.dateToGregorian
 import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_select_duration.*
@@ -19,6 +22,8 @@ import java.util.*
 class SelectDurationFragment : Fragment(R.layout.fragment_select_duration) {
 
     private val selectDurationViewModel by viewModels<SelectDurationViewModel>()
+
+    private var startDate: Date = Date()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,13 +46,39 @@ class SelectDurationFragment : Fragment(R.layout.fragment_select_duration) {
         img_back.setOnClickListener {
             findNavController().popBackStack()
         }
+
+        lil_duration.setOnClickListener {
+            NumberPickerDialog.showDialog(requireContext(), layoutInflater, "Duration", "") {
+                txt_duration_value.text = it.toString()
+            }
+        }
+
+        lil_until.setOnClickListener {
+            val calendar = Calendar.getInstance().apply {
+                time = startDate // TODO : plus one day
+            }
+            val dateValidator = DateValidatorPointForward.from(calendar.timeInMillis)
+            val constraintsBuilder = CalendarConstraints.Builder().setValidator(dateValidator)
+            val datePicker = MaterialDatePicker
+                .Builder
+                .datePicker()
+                .setCalendarConstraints(constraintsBuilder.build())
+                .build()
+            datePicker.show(childFragmentManager, datePicker.tag)
+
+            datePicker.addOnPositiveButtonClickListener {
+                calendar.timeInMillis = it
+                txt_until_value.text = calendar.time.dateToGregorian()
+            }
+        }
     }
 
     private fun showDatePicker(date: Date) {
         val calendar = Calendar.getInstance().apply {
             time = date
         }
-        val constraintsBuilder = CalendarConstraints.Builder().setStart(calendar.timeInMillis)
+        val dateValidator = DateValidatorPointForward.from(calendar.timeInMillis - 1000)
+        val constraintsBuilder = CalendarConstraints.Builder().setValidator(dateValidator)
         val datePicker = MaterialDatePicker
             .Builder
             .datePicker()
@@ -56,7 +87,9 @@ class SelectDurationFragment : Fragment(R.layout.fragment_select_duration) {
         datePicker.show(childFragmentManager, datePicker.tag)
 
         datePicker.addOnPositiveButtonClickListener {
-
+            calendar.timeInMillis = it
+            startDate = calendar.time
+            txt_date_unit.text = calendar.time.dateToGregorian()
         }
     }
 
@@ -73,4 +106,5 @@ class SelectDurationFragment : Fragment(R.layout.fragment_select_duration) {
             }
         }
     }
+
 }
